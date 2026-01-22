@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - CleanSwipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        
+        .content {
+            padding: 120px 0 60px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        
+        p {
+            color: #b0b0b0;
+            margin-bottom: 16px;
+        }
+        
+        a {
+            color: #667eea;
+        }
+        
+        /* Contact Card */
+        .contact-card {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+        
+        .contact-card p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+        
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            color: #ffffff;
+        }
+        
+        /* FAQ Section */
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #a0a0a0;
+        }
+        
+        /* Quick Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tip-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        
+        .tip-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .tip-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #666;
+            font-size: 0.875rem;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">CleanSwipe</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <div class="container">
+            <h1>Support Center</h1>
+            <p class="subtitle">We're here to help you get the most out of CleanSwipe</p>
+            
+            <div class="contact-card">
+                <h3>Need Help?</h3>
+                <p>Have a question, found a bug, or want to suggest a feature? We'd love to hear from you!</p>
+                <a href="mailto:snrgwa@gmail.com?subject=CleanSwipe%20Support%20Request" class="contact-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Email Support
+                </a>
+            </div>
+            
+            <h2>Quick Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">👈</div>
+                    <h4>Swipe Left</h4>
+                    <p>Mark a photo for deletion. It goes to trash, not deleted immediately.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">👉</div>
+                    <h4>Swipe Right</h4>
+                    <p>Keep the photo. It stays in your library and is marked as reviewed.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">👆</div>
+                    <h4>Swipe Up</h4>
+                    <p>Open more options: fullscreen view, share, add to favorites, and photo info.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">👆👆</div>
+                    <h4>Double Tap</h4>
+                    <p>Protect or unprotect a photo. Protected photos can't be deleted.</p>
+                </div>
+            </div>
+            
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I delete photos permanently?</div>
+                <div class="faq-answer">
+                    Tap the trash icon in the top-right corner to view photos marked for deletion. Review them, then tap "Delete All" to permanently remove them. This action cannot be undone.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I recover deleted photos?</div>
+                <div class="faq-answer">
+                    Photos in the CleanSwipe trash can be restored anytime before you tap "Delete All." Once permanently deleted, photos cannot be recovered through CleanSwipe. However, they may still be available in your device's "Recently Deleted" album in the Photos app for up to 30 days.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What does protecting a photo do?</div>
+                <div class="faq-answer">
+                    Double-tapping a photo marks it as a favorite in your device's Photos app and protects it in CleanSwipe. Protected photos cannot be swiped to trash or deleted until you unprotect them by double-tapping again.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I filter photos by date?</div>
+                <div class="faq-answer">
+                    Tap the filter button at the top of the screen (shows current filter like "All Photos"). You can choose quick filters or select a specific year and month to focus on photos from that time period.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What happens if I close the app?</div>
+                <div class="faq-answer">
+                    Your progress is saved automatically. Photos in your trash, your review history, and all settings persist even if you close the app. The trash icon will shake to remind you if you have photos waiting to be deleted.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I undo a swipe?</div>
+                <div class="faq-answer">
+                    Tap the yellow undo button (↩️) below the photo card to restore your last swiped photo. This works for both left (delete) and right (keep) swipes.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Does CleanSwipe upload my photos anywhere?</div>
+                <div class="faq-answer">
+                    No. CleanSwipe works entirely on your device. Your photos never leave your phone and are never uploaded to any server. See our <a href="privacy.html">Privacy Policy</a> for more details.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I share a photo to another app?</div>
+                <div class="faq-answer">
+                    Swipe up on any photo to open options, then tap "Share / Open In..." This opens the iOS share sheet where you can send the photo to any app, save it, AirDrop it, and more.
+                </div>
+            </div>
+            
+            <h2>Still Need Help?</h2>
+            <p>If you couldn't find the answer you're looking for, don't hesitate to reach out. We typically respond within 24-48 hours.</p>
+            
+            <div class="contact-card">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:snrgwa@gmail.com">snrgwa@gmail.com</a></p>
+                <p style="margin-top: 16px; font-size: 0.9rem;">When contacting support, please include:</p>
+                <ul style="text-align: left; color: #a0a0a0; font-size: 0.9rem; margin-top: 10px;">
+                    <li>Your device model (e.g., iPhone 15 Pro)</li>
+                    <li>iOS version</li>
+                    <li>Description of the issue</li>
+                    <li>Steps to reproduce the problem (if applicable)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 CleanSwiper. All rights reserved.</p>
+            <p style="margin-top: 10px;"><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+        </div>
+    </footer>
+</body>
+</html>
