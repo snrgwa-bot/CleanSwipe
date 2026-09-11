@@ -370,7 +370,25 @@
                 align-items: center;
             }
         }
-    </style>
+    
+        /* ===== Large displays =====
+           The shell was pinned at 1200px, which on a 2560px monitor reads as a
+           narrow column adrift in empty space. Widen the shell AND scale the
+           root font size, so type and spacing grow together — widening alone
+           just stretches the gaps. Copy blocks keep their own measure so line
+           length stays readable however wide the window gets. */
+        @media (min-width: 1500px) {
+            :root { font-size: 17.5px; }
+            .container { max-width: 1400px; }
+            .hero p { max-width: 34em; }
+            .step { max-width: 18em; }
+        }
+        @media (min-width: 2000px) {
+            :root { font-size: 19px; }
+            .container { max-width: 1640px; }
+            .step { max-width: 19em; }
+        }
+</style>
 </head>
 <body>
     <nav>
